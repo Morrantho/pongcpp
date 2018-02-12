@@ -1,0 +1,35 @@
+﻿  main.cpp
+c:\projects\sfml_test\sfml_test\entitynode.h(7): error C3646: 'value': unknown override specifier
+c:\projects\sfml_test\sfml_test\entitynode.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\projects\sfml_test\sfml_test\entitynode.h(10): error C2061: syntax error: identifier 'Entity'
+c:\projects\sfml_test\sfml_test\entitylist.h(12): error C2061: syntax error: identifier 'Entity'
+  Player.cpp
+c:\projects\sfml_test\sfml_test\entitynode.h(7): error C3646: 'value': unknown override specifier
+c:\projects\sfml_test\sfml_test\entitynode.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\projects\sfml_test\sfml_test\entitynode.h(10): error C2061: syntax error: identifier 'Entity'
+c:\projects\sfml_test\sfml_test\entitylist.h(12): error C2061: syntax error: identifier 'Entity'
+  Input.cpp
+c:\projects\sfml_test\sfml_test\entitynode.h(7): error C3646: 'value': unknown override specifier
+c:\projects\sfml_test\sfml_test\entitynode.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\projects\sfml_test\sfml_test\entitynode.h(10): error C2061: syntax error: identifier 'Entity'
+c:\projects\sfml_test\sfml_test\entitylist.h(12): error C2061: syntax error: identifier 'Entity'
+  EntityNode.cpp
+c:\projects\sfml_test\sfml_test\entitylist.h(9): error C2143: syntax error: missing ';' before '*'
+c:\projects\sfml_test\sfml_test\entitylist.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\projects\sfml_test\sfml_test\entitylist.h(9): error C2238: unexpected token(s) preceding ';'
+c:\projects\sfml_test\sfml_test\entitylist.h(12): error C2061: syntax error: identifier 'Entity'
+  EntityList.cpp
+c:\projects\sfml_test\sfml_test\ents.h(10): error C3646: 'alive': unknown override specifier
+c:\projects\sfml_test\sfml_test\ents.h(10): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\projects\sfml_test\sfml_test\ents.h(15): error C3646: 'getAll': unknown override specifier
+c:\projects\sfml_test\sfml_test\ents.h(15): error C2059: syntax error: '('
+c:\projects\sfml_test\sfml_test\ents.h(15): error C2238: unexpected token(s) preceding ';'
+  Entity.cpp
+c:\projects\sfml_test\sfml_test\entitynode.h(7): error C3646: 'value': unknown override specifier
+c:\projects\sfml_test\sfml_test\entitynode.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\projects\sfml_test\sfml_test\entitynode.h(10): error C2061: syntax error: identifier 'Entity'
+c:\projects\sfml_test\sfml_test\entitylist.h(12): error C2061: syntax error: identifier 'Entity'
+  Generating Code...
+  Compiling...
+  ents.cpp
+  Generating Code...
