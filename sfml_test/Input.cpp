@@ -11,20 +11,20 @@ void Input::setEntity(Entity *ent){
 void Input::keyDown(int code){
 	switch (code) {
 		case 18:
-			ent->dir = 1;
+			ent->yDir = 1;
 			break;
 		case 22:
-			ent->dir = -1;
+			ent->yDir = -1;
 			break;
 	}
 }
 
 void Input::keyUp(int code) {
-	ent->dir = 0;
+	ent->yDir = 0;
 
 	//switch (code){
 	//	default:
-	//		ent->dir = 0;
+	//		ent->yDir = 0;
 	//		break;
 	//}
 }

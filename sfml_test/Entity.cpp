@@ -1,17 +1,26 @@
+#include "Global.h"
 #include "Entity.h"
+#include <iostream>
+
+#include "Global.h"
 
 Entity::Entity(){
-	this->shape = sf::RectangleShape();
-	this->shape.setSize(sf::Vector2f(32.f, 96.f));
-	this->shape.setPosition(sf::Vector2f(32.f, 32.f));
+	init();
+}
 
+void Entity::init() {
+	shape = sf::RectangleShape();
+	shape.setSize(sf::Vector2f(32.f, 96.f));
+	shape.setPosition(sf::Vector2f(64.f, 32.f));
 
+	score = 0;
 }
 
 void Entity::tick(){
 	sf::Vector2f pos = shape.getPosition();
 
 	pos.y += yV;
+	pos.x += xV;
 
 	shape.setPosition(pos);
 
@@ -35,12 +44,35 @@ bool Entity::intersects(Entity *e){
 	ePos.y < pos.y + scl.y;
 }
 
+void Entity::bounds(){
+	sf::Vector2f pos  = shape.getPosition();
+	sf::Vector2f size = shape.getSize();
+	
+	if(pos.y <= 0){
+		pos.y = 0;
+	}else if(pos.y+size.y >= WIN_H){
+		pos.y = WIN_H - size.y;
+	}
+
+	shape.setPosition(pos);
+}
+
 void Entity::move(){
-	if(dir == -1 && yV > -cap){ // Up
+	if(yDir == -1 && yV > -cap){ // Up
 		yV -= speed;
-	}else if(dir== 0) { // Idle
+	}else if(yDir== 0) { // Idle Y
 		yV /= (1.0f + damping);
-	}else if (dir == 1 && yV < cap) { // Down
+	}else if (yDir == 1 && yV < cap) { // Down
 		yV += speed;
 	}
+
+	if (xDir == -1 && xV > -cap) { // Left
+		xV -= speed;
+	}else if (xDir == 0) { // Idle X
+		xV /= (1.0f + damping);
+	}else if (xDir == 1 && xV < cap) { // Right
+		xV += speed;
+	}
+
+	bounds();
 }

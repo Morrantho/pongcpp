@@ -3,28 +3,34 @@
 #include "Input.h"
 #include "Entity.h"
 #include "Player.h"
-#include "ents.h"
+#include "Ball.h"
+#include "Global.h"
 
 int main(){
-	const int width = 1024;
-	const int height = 768;
+	sf::RenderWindow window(sf::VideoMode(WIN_W,WIN_H),"Pang", sf::Style::Default);
+	window.setFramerateLimit(66);
 
-	sf::RenderWindow window(sf::VideoMode(width,height),"Pang", sf::Style::Default);
-	window.setFramerateLimit(60);
+	if (!SCORE_FONT->loadFromFile("computer_pixel-7.ttf"))
+		return 1;
 
-	Player pad;
+	PLAYER_SCORE_TEXT->setFont(*SCORE_FONT);
+	PLAYER_SCORE_TEXT->setCharacterSize(96);
+	PLAYER_SCORE_TEXT->setPosition(sf::Vector2f(WIN_W/2-128.0f,0.0f));
+
+	AI_SCORE_TEXT->setFont(*SCORE_FONT);
+	AI_SCORE_TEXT->setCharacterSize(96);
+	AI_SCORE_TEXT->setPosition(sf::Vector2f(WIN_W/2+128.0f,0.0f));
 
 	while (window.isOpen()){
 		sf::Event event;
 		
 		while (window.pollEvent(event)){
-
 			switch (event.type) {
 				case sf::Event::KeyPressed:
-					pad.input.keyDown(event.key.code);
+					PLAYER->input.keyDown(event.key.code);
 					break;
 				case sf::Event::KeyReleased:
-					pad.input.keyUp(event.key.code);
+					PLAYER->input.keyUp(event.key.code);
 					break;
 				case sf::Event::Closed:
 					window.close();
@@ -33,12 +39,20 @@ int main(){
 		}
 
 		window.clear();
+			PLAYER->tick();
+			PLAYER->render(&window);
 
-		ents::getInstance().tick();
-		ents::getInstance().render(&window);
+			AI->tick();
+			AI->render(&window);
 
-		//pad.tick();
-		//pad.render(&window);
+			BALL->tick();
+			BALL->render(&window);
+
+			PLAYER_SCORE_TEXT->setString(std::to_string(PLAYER->score));
+			AI_SCORE_TEXT->setString(std::to_string(AI->score));
+
+			window.draw(*PLAYER_SCORE_TEXT);
+			window.draw(*AI_SCORE_TEXT);
 		window.display();
 	}
 
